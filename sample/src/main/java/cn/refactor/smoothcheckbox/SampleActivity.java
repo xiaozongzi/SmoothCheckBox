@@ -13,6 +13,7 @@ public class SampleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sample);
 
         final SmoothCheckBox scb = (SmoothCheckBox) findViewById(R.id.scb);
+//        scb.setText("adfad");
         scb.setOnCheckedChangeListener(new SmoothCheckBox.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(SmoothCheckBox checkBox, boolean isChecked) {

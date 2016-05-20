@@ -26,6 +26,8 @@
         android:layout_height="20dp"
         android:layout_gravity="center_vertical|right"
         android:layout_weight="1"
+        app:duration="1000"
+        app:color_checked="?attr/colorPrimary"
         android:layout_margin="5dp"/>
 
 

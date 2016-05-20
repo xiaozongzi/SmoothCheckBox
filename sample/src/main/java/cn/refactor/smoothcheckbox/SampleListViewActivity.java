@@ -8,11 +8,10 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import cn.refactor.library.SmoothCheckBox;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-
-import cn.refactor.library.SmoothCheckBox;
 
 public class SampleListViewActivity extends AppCompatActivity {
     private ArrayList<Bean> mList = new ArrayList<Bean>();
@@ -23,6 +22,9 @@ public class SampleListViewActivity extends AppCompatActivity {
 
         for (int i = 0; i < 100; i ++) {
             mList.add(new Bean());
+            if (i==2){
+                mList.get(2).isChecked=true;
+            }
         }
 
         ListView lv = (ListView) findViewById(R.id.lv);
@@ -56,15 +58,17 @@ public class SampleListViewActivity extends AppCompatActivity {
                 }
 
                 final Bean bean = mList.get(position);
-                holder.cb.setOnCheckedChangeListener(new SmoothCheckBox.OnCheckedChangeListener() {
+                holder.cb.setChecked(bean.isChecked,bean.isChecked);
+         /*       holder.cb.setOnCheckedChangeListener(new SmoothCheckBox.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(SmoothCheckBox checkBox, boolean isChecked) {
                         bean.isChecked = isChecked;
                     }
-                });
+                });*/
                 String text = getString(R.string.string_item_subffix) + position;
                 holder.tv.setText(text);
-                holder.cb.setChecked(bean.isChecked);
+                holder.cb.setClickable(true);
+                holder.cb.setEnabled(true);
 
                 return convertView;
             }
